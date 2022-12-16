@@ -5,8 +5,8 @@ const portNumber = process.env.PORT || 3001;
 const path = require("path");
 const http = require("http");
 
-const userName = process.env.MONGO_DB_USERNAME;
-const password = process.env.MONGO_DB_PASSWORD;
+const userName = "asdf1234"
+const password = "asdf1234"
 
 /* Our database and collection */
 const databaseAndCollection = {db: "CMSC335_Final", collection:"totalCalls"};
@@ -31,6 +31,8 @@ const iter = ["genshin", "wrongInput"]
 let character_json = require(`./character.json`)
 let loc_json = require(`./loc.json`)
 let UID = 609066389
+let link = "cmsc335final-vdb1.onrender.com"
+
 
 async function totalCalls(userInput) {
 
@@ -158,7 +160,7 @@ app.get("/", async (request, response) => {
 
         table = table + "</table>"
 
-        response.render('index.ejs', { myVar : myVar, table: table});
+        response.render('index.ejs', { link : link ,myVar : myVar, table: table});
 
     })
 
@@ -240,7 +242,7 @@ app.get("/genshin", async (request, response) => {
         
         table = table + "</table>"
 
-        response.render('genshin.ejs', { myVar : myVar, table: table, UID: UID});
+        response.render('genshin.ejs', { link : link , myVar : myVar, table: table, UID: UID});
 
     }
 
@@ -253,7 +255,7 @@ app.get("/wrongInput", async (request, response) => {
 
     let myVar = portNumber;
 
-    response.render('wrongInput.ejs', { myVar : myVar});
+    response.render('wrongInput.ejs', { link : link , myVar : myVar});
 
 });
 

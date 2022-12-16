@@ -25,7 +25,7 @@
 		<%- table %>
 	</div>
 
-	<form action="http://localhost:<%= myVar %>/callsReset" method="post">
+	<form action="http://<%= link %>:<%= myVar %>/callsReset" method="post">
 
 		<br>
 		<input type="submit" value="Reset Table" onclick="return confirm('Are you sure you want to reset?')"/>
@@ -33,7 +33,7 @@
 
 	<br>
 
-	<form action="http://localhost:<%= myVar %>/userInput" method="post">
+	<form action="http://<%= link %>:<%= myVar %>/userInput" method="post">
 		<fieldset>
             <legend>
                 <strong>Type genshin UID (609066389 for mine)</strong>
