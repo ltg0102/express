@@ -187,7 +187,7 @@ app.post("/userInput", (request, response) => {
     .then(res => res.json())
     .then(out => {
 
-        if (Object.keys(out).length !== 0)  {
+        if (Object.keys(out).length !== 0 && out.avatarInfoList != null)  {
 
             increment("genshin")
 
@@ -207,6 +207,7 @@ app.post("/userInput", (request, response) => {
 
 
 });
+
 
 
 app.post("/callsReset", (request, response) => {
