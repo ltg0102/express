@@ -1,10 +1,9 @@
 /* Stuff for server */
 
-const portNumber = process.argv[2];
+const portNumber = process.env.PORT || 3001;
 
 const path = require("path");
 const http = require("http");
-require("dotenv").config({ path: path.resolve(__dirname, 'credentialsDontPost/.env') }) 
 
 const userName = process.env.MONGO_DB_USERNAME;
 const password = process.env.MONGO_DB_PASSWORD;
@@ -259,30 +258,7 @@ app.get("/wrongInput", async (request, response) => {
 });
 
 
-
 app.listen(portNumber);
 
 console.log(`Web server is running at http://localhost:${portNumber}`);
-
-process.stdout.write("Stop to shutdown the server: ");
-process.stdin.setEncoding("utf8"); /* encoding */
-process.stdin.on('readable', () => {  /* on equivalent to addEventListener */
-	let dataInput = process.stdin.read();
-
-    // console.log(`Current arguments: ${process.argv}`)
-
-	while (dataInput !== null) {
-		let command = dataInput.trim();
-		if (command === "stop") {
-			console.log("Shutting down the server");
-            process.exit(0);  /* exiting */
-        }
-        else {
-			/* After invalid command, we cannot type anything else */
-			console.log(`Invalid command: ${command}`);
-            process.stdout.write("Stop to shutdown the server: ");
-            dataInput = process.stdin.read();
-		}
-    }
-});
 
