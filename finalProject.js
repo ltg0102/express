@@ -1,5 +1,7 @@
 /* Stuff for server */
 
+const fetch = (url) => import('node-fetch').then(({default: fetch}) => fetch(url));
+
 const portNumber = process.env.PORT || 3001;
 
 const path = require("path");
